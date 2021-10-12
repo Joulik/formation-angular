@@ -13,4 +13,5 @@ export class StagiairesService {
   findAll(): Array<Stagiaire> {
     return this.stagiaires;
   }
+
 }

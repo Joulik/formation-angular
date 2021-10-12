@@ -9,6 +9,8 @@ import { StagiairesService } from './stagiaires.service';
 })
 export class StagiairesComponent implements OnInit {
 
+  stagiaireForm: Stagiaire = null;
+
   constructor(private stagiaireService: StagiairesService) { }
 
   ngOnInit(): void {
@@ -16,6 +18,10 @@ export class StagiairesComponent implements OnInit {
 
   list(): Array<Stagiaire> {
     return this.stagiaireService.findAll();
-} 
+  }
 
+  add(): void {
+    this.stagiaireForm = new Stagiaire();
+
+  }
 }
