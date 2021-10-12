@@ -7,12 +7,14 @@ import { MatieresComponent } from './matieres/matieres.component';
 import { MatiereService } from './matieres/matiere.service';
 import { FormsModule } from '@angular/forms';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
+import { StagiairesComponent } from './stagiaires/stagiaires.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MatieresComponent,
-    MatiereEditComponent
+    MatiereEditComponent,
+    StagiairesComponent
   ],
   imports: [
     BrowserModule,
