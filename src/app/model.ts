@@ -56,7 +56,7 @@ export class Stagiaire extends Personne {
     public Cursus: Cursus;
     // public List<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
 
-    constructor(Id: number, PersonneType:string, Nom:string, Prenom:string, DateNaissance: Date, CursusId?: number, Cursus?: Cursus) {
+    constructor(Id?: number, PersonneType?:string, Nom?:string, Prenom?:string, DateNaissance?: Date, CursusId?: number, Cursus?: Cursus) {
         super(Id,PersonneType,Nom,Prenom);
         this.DateNaissance = DateNaissance;
         this.CursusId = CursusId;
