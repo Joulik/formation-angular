@@ -27,14 +27,11 @@
                         <td>{{stagiaire.CursusId}}</td>
                         <td>{{stagiaire.Cursus}}</td>
                         <td>
-                            <!-- <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
+                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
                                     (click)="edit(stagiaire.Id)"><i class="fa fa-edit"></i></button><button type="button"
                                     class="btn btn-danger" (click)="remove(stagiaire.Id)"><i
-                                        class="fa fa-trash"></i></button></div> -->
-                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
-                                    ><i class="fa fa-edit"></i></button><button
-                                    type="button" class="btn btn-danger" ><i
                                         class="fa fa-trash"></i></button></div>
+                            
                         </td>
                     </tr>
                 </tbody>
@@ -50,3 +47,54 @@
 
 <!-- <stagiaire-edit [stagiaire]="stagiaireForm" (deleteRequest)="remove($event)" *ngIf="stagiaireForm" (cancelRequest)="cancel()">
 </stagiaire-edit> -->
+
+<div class="card" id="stagiaireForm" *ngIf="stagiaireForm">
+    <div class="card-header bg-info text-white">
+        <h3>
+            Edition du stagiaire
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group row">
+            <label for="Id" class="col-md-2 col-form-label">Identifiant:</label>
+            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="stagiaireForm.Id">
+        </div>
+        <div class="form-group row">
+            <label for="PersonneType" class="col-md-2 col-form-label">PersonneType :</label>
+            <input type="text" class="col-md-10 form-control" id="PersonneType" [(ngModel)]="stagiaireForm.PersonneType">
+        </div>
+        <div class="form-group row">
+            <label for="Nom" class="col-md-2 col-form-label">Nom :</label>
+            <input type="text" class="col-md-10 form-control" id="Nom" [(ngModel)]="stagiaireForm.Nom">
+        </div>
+        <div class="form-group row">
+            <label for="Prenom" class="col-md-2 col-form-label">Prenom :</label>
+            <input type="Prenom" class="col-md-10 form-control" id="Prenom" [(ngModel)]="stagiaireForm.Prenom">
+        </div>
+        <div class="form-group row">
+            <label for="DateNaissance" class="col-md-2 col-form-label">Date de Naissance:</label>
+            <input type="date" class="col-md-10 form-control" id="DateNaissance" [(ngModel)]="stagiaireForm.DateNaissance">
+        </div>
+        <div class="form-group row">
+            <label for="CursuId" class="col-md-2 col-form-label">CursuId :</label>
+            <input type="number" class="col-md-10 form-control" id="CursuId" [(ngModel)]="stagiaireForm.CursusId">
+        </div>
+        <!-- <div class="form-group row">
+            <label for="Cursus" class="col-md-2 col-form-label">Cursus:</label>
+            <input type="text" class="col-md-10 form-control" id="Cursus" [(ngModel)]="stagiaire.Cursus">
+        </div> -->
+    </div>
+     <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <button type="button" class="btn btn-success" (click)="save()">
+                <i class="fa fa-check"></i>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="remove(stagiaireForm.Id)">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" class="btn btn-warning" (click)="cancel()">
+                <i class="fa fa-undo"></i>
+            </button>
+        </div>
+    </div> 
+</div>
