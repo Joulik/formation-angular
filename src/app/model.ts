@@ -15,3 +15,17 @@ export class Matiere {
         this.Programme = programme;
     }
 }
+
+export class Formateur {
+    public Id: number;
+
+    public competences: Array<Matiere> = new Array<Matiere>();
+}
+
+export class Personne {
+    public Id: number;
+}
+
+export class Stagiaire extends Personne {
+
+}
