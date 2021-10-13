@@ -1,0 +1,85 @@
+<div class="card my-3">
+    <div class="card-header bg-info text-white">
+        <h2>Liste des cursus</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped" id="tableStagiaire">
+                <thead>
+                    <tr>
+                        <th>Identifiant</th>
+                        <th>Intitulé</th>
+                        <th>Date de Début</th>
+                        <th>Date de Fin</th>
+                        <th>Stagiaires</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cursus of list()">
+                        <td>{{cursus.Id}}</td>
+                        <td>{{cursus.Intitule}}</td>
+                        <td>{{cursus.DateDebut}}</td>
+                        <td>{{cursus.DateFin}}</td>
+                        <td>{{cursus.Stagiaires}}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
+                                    (click)="edit(cursus.Id)"><i class="fa fa-edit"></i></button><button type="button"
+                                    class="btn btn-danger" (click)="remove(cursus.Id)"><i
+                                        class="fa fa-trash"></i></button>
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-success btn-lg" (click)="add()">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+</div>
+
+<div class="card" id="cursusForm" *ngIf="cursusForm">
+    <div class="card-header bg-info text-white">
+        <h3>
+            Edition du cursus
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group row">
+            <label for="Id" class="col-md-2 col-form-label">Identifiant:</label>
+            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="cursusForm.Id">
+        </div>
+        <div class="form-group row">
+            <label for="Intitule" class="col-md-2 col-form-label">Intitule :</label>
+            <input type="text" class="col-md-10 form-control" id="Intitule" [(ngModel)]="cursusForm.Intitule">
+        </div>
+        <div class="form-group row">
+            <label for="DateDebut" class="col-md-2 col-form-label">Date de début:</label>
+            <input type="date" class="col-md-10 form-control" id="DateDebut" [(ngModel)]="cursusForm.DateDebut">
+        </div>
+        <div class="form-group row">
+            <label for="DateFin" class="col-md-2 col-form-label">Date de fin :</label>
+            <input type="number" class="col-md-10 form-control" id="DateFin" [(ngModel)]="cursusForm.DateFin">
+        </div>
+        <!-- <div class="form-group row">
+            <label for="Cursus" class="col-md-2 col-form-label">Cursus:</label>
+            <input type="text" class="col-md-10 form-control" id="Cursus" [(ngModel)]="stagiaire.Cursus">
+        </div> -->
+    </div>
+     <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <button type="button" class="btn btn-success" (click)="save()">
+                <i class="fa fa-check"></i>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="remove(cursusForm.Id)">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" class="btn btn-warning" (click)="cancel()">
+                <i class="fa fa-undo"></i>
+            </button>
+        </div>
+    </div> 
+</div>

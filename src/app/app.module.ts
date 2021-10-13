@@ -8,13 +8,15 @@ import { MatiereService } from './matieres/matiere.service';
 import { FormsModule } from '@angular/forms';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { StagiairesComponent } from './stagiaires/stagiaires.component';
+import { CursusComponent } from './cursus/cursus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MatieresComponent,
     MatiereEditComponent,
-    StagiairesComponent
+    StagiairesComponent,
+    CursusComponent
   ],
   imports: [
     BrowserModule,

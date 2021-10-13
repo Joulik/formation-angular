@@ -72,7 +72,7 @@ export class Cursus{
     public  DateFin : Date;
     public Stagiaires : Array<Stagiaire>  = new Array<Stagiaire>();
 
-    constructor(id: number, intitule : string, datedebut:Date, datefin : Date, stagiaires: Array<Stagiaire>){
+    constructor(id?: number, intitule? : string, datedebut?:Date, datefin?: Date, stagiaires?: Array<Stagiaire>){
         this.Id=id;
         this.Intitule=intitule;
         this.DateDebut=datedebut;
