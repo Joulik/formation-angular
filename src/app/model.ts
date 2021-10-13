@@ -36,16 +36,16 @@ export abstract class Personne {
     }
 }
 
-export class Formateur {
-    public Id: number;
+export class Formateur extends Personne {
+    // public Id: number;
     public Externe: boolean;
     //public UtilisateurId: number;
-    public competences: Array<Matiere> = new Array<Matiere>();
+    public Competences: Array<Matiere> = new Array<Matiere>();
 
-    constructor(Id: number, Externe: boolean, competences:Array<Matiere>) {
-        this.Id=Id;
+    constructor(Id?: number, PersonneType?:string, Nom?:string, Prenom?:string, Externe?: boolean, Competences?:Array<Matiere>) {
+        super(Id,PersonneType,Nom,Prenom);
         this.Externe=Externe;
-        this.competences=competences;
+        this.Competences=Competences;
     }
 }
 
