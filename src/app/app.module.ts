@@ -8,6 +8,7 @@ import { MatiereService } from './matieres/matiere.service';
 import { FormsModule } from '@angular/forms';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { StagiairesComponent } from './stagiaires/stagiaires.component';
+import { FormateursComponent } from './formateurs/formateurs.component';
 import { CursusComponent } from './cursus/cursus.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { CursusComponent } from './cursus/cursus.component';
     MatieresComponent,
     MatiereEditComponent,
     StagiairesComponent,
+    FormateursComponent,
     CursusComponent
   ],
   imports: [
