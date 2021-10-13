@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cursus } from '../model';
+import { Cursus, Stagiaire } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,7 @@ import { Cursus } from '../model';
 export class CursusService {
 
   private cursus: Array<Cursus> = new Array<Cursus>();
+  private stagiaires : Array<Stagiaire> = new Array<Stagiaire>();
 
   constructor() {
     this.load();
@@ -15,6 +16,11 @@ export class CursusService {
   findAll(): Array<Cursus> {
     return this.cursus;
   }
+
+  findAllStagiaires(): Array<Stagiaire> {
+    return this.stagiaires;
+  }
+
   find(id: number): Cursus {
     return this.cursus.find(m => m.Id == id);
   }
@@ -33,10 +39,10 @@ export class CursusService {
     this.cursus.push(cursus);
   }
 
-  update(stagiaire: Cursus) : void {
-    const position: number = this.cursus.findIndex(m => m.Id == stagiaire.Id);
+  update(cursus: Cursus) : void {
+    const position: number = this.cursus.findIndex(m => m.Id == cursus.Id);
 
-    this.cursus[position] = stagiaire;
+    this.cursus[position] = cursus;
   }
 
   delete(id: number): void {
@@ -46,7 +52,8 @@ export class CursusService {
   }
 
   private load(): void {
-    this.cursus.push(new Cursus(1,"cursus1"));
+    //this.cursus.push(new Cursus(1,"cursus1",new Date(),new Date()));
+    this.cursus.push(new Cursus(1,"cursus1", new Date(), new Date(), [new Stagiaire(12), new Stagiaire(13)]));
    
   }
 }
