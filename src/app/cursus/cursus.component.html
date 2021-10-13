@@ -23,7 +23,7 @@
                         <td>{{cursus.DateFin}}</td>
                         <td>
                             <ul>
-                                <li *ngFor="let stag of listStagiaires()">{{stag.Id}}</li>
+                                <li *ngFor="let stag of listStagiaires(cursus)">{{stag.Id}}</li>
                             </ul>
                         </td>
                         <td>
@@ -66,12 +66,16 @@
         </div>
         <div class="form-group row">
             <label for="DateFin" class="col-md-2 col-form-label">Date de fin :</label>
-            <input type="number" class="col-md-10 form-control" id="DateFin" [(ngModel)]="cursusForm.DateFin">
+            <input type="date" class="col-md-10 form-control" id="DateFin" [(ngModel)]="cursusForm.DateFin">
         </div>
-        <!-- <div class="form-group row">
-            <label for="Cursus" class="col-md-2 col-form-label">Cursus:</label>
-            <input type="text" class="col-md-10 form-control" id="Cursus" [(ngModel)]="stagiaire.Cursus">
-        </div> -->
+        <div class="form-group row">
+            <label for="Stagiaires" class="col-md-2 col-form-label">Liste de Stagiaires:</label>
+            <select [(ngModel)]="stagiairesForm">
+                <option *ngFor="let stag of stagiaireService.findAll()" value="stag.Id">{{stag.Id}}</option>
+                
+               </select>
+            <!-- <input type="text" class="col-md-10 form-control" id="Stagiaires" [(ngModel)]="> -->
+        </div>
     </div>
     <div class="card-footer">
         <div class="btn-group btn-group-lg float-right">

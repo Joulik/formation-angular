@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cursus, Stagiaire } from '../model';
+import { StagiairesService } from '../stagiaires/stagiaires.service';
 import { CursusService } from './cursus.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { CursusService } from './cursus.service';
 export class CursusComponent implements OnInit {
 
   cursusForm: Cursus = null;
+  public stagiaireService: StagiairesService = new StagiairesService();
+  stagiairesForm : Array<Stagiaire> = this.stagiaireService.stagiaires;
+
 
   // @Output() deleteRequest = new EventEmitter<number>();
 
@@ -22,8 +26,8 @@ export class CursusComponent implements OnInit {
     return this.cursusService.findAll();
   }
 
-  listStagiaires(): Array<Stagiaire> {
-    return this.cursusService.findAllStagiaires();
+  listStagiaires(cursus : Cursus): Array<Stagiaire> {
+    return this.cursusService.findAllStagiaires(cursus);
   }
 
   add(): void {

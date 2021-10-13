@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cursus, Stagiaire } from '../model';
+import { StagiairesService } from '../stagiaires/stagiaires.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Cursus, Stagiaire } from '../model';
 export class CursusService {
 
   private cursus: Array<Cursus> = new Array<Cursus>();
-  private stagiaires : Array<Stagiaire> = new Array<Stagiaire>();
+  
 
   constructor() {
     this.load();
@@ -17,8 +18,8 @@ export class CursusService {
     return this.cursus;
   }
 
-  findAllStagiaires(): Array<Stagiaire> {
-    return this.stagiaires;
+  findAllStagiaires(cur : Cursus): Array<Stagiaire> {
+    return cur.Stagiaires;
   }
 
   find(id: number): Cursus {

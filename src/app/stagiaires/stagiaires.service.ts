@@ -6,7 +6,7 @@ import { Matiere, Stagiaire } from '../model';
 })
 export class StagiairesService {
 
-  private stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
+  public stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
 
   constructor() {
     this.load();
