@@ -21,13 +21,17 @@
                         <td>{{cursus.Intitule}}</td>
                         <td>{{cursus.DateDebut}}</td>
                         <td>{{cursus.DateFin}}</td>
-                        <td>{{cursus.Stagiaires}}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let stag of listStagiaires()">{{stag.Id}}</li>
+                            </ul>
+                        </td>
                         <td>
                             <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
                                     (click)="edit(cursus.Id)"><i class="fa fa-edit"></i></button><button type="button"
                                     class="btn btn-danger" (click)="remove(cursus.Id)"><i
                                         class="fa fa-trash"></i></button>
-                                    </div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -69,7 +73,7 @@
             <input type="text" class="col-md-10 form-control" id="Cursus" [(ngModel)]="stagiaire.Cursus">
         </div> -->
     </div>
-     <div class="card-footer">
+    <div class="card-footer">
         <div class="btn-group btn-group-lg float-right">
             <button type="button" class="btn btn-success" (click)="save()">
                 <i class="fa fa-check"></i>
@@ -81,5 +85,5 @@
                 <i class="fa fa-undo"></i>
             </button>
         </div>
-    </div> 
+    </div>
 </div>

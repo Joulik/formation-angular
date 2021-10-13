@@ -12,6 +12,7 @@ export class StagiairesService {
     this.load();
    }
 
+   
   findAll(): Array<Stagiaire> {
     return this.stagiaires;
   }
@@ -46,7 +47,6 @@ export class StagiairesService {
   }
 
   private load(): void {
-    this.stagiaires.push(new Stagiaire(1,"type", "Name", "firstname"));
-   
+    this.stagiaires.push(new Stagiaire(1,"type", "Name", "firstname", new Date(),1));
   }
 }

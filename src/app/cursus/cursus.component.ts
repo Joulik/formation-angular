@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cursus } from '../model';
+import { Cursus, Stagiaire } from '../model';
 import { CursusService } from './cursus.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class CursusComponent implements OnInit {
 
   cursusForm: Cursus = null;
 
- // @Output() deleteRequest = new EventEmitter<number>();
+  // @Output() deleteRequest = new EventEmitter<number>();
 
   constructor(private cursusService: CursusService) { }
 
@@ -22,20 +22,24 @@ export class CursusComponent implements OnInit {
     return this.cursusService.findAll();
   }
 
+  listStagiaires(): Array<Stagiaire> {
+    return this.cursusService.findAllStagiaires();
+  }
+
   add(): void {
     this.cursusForm = new Cursus();
 
   }
   edit(id: number): void {
-    this.cursusForm = {... this.cursusService.find(id)};
+    this.cursusForm = { ... this.cursusService.find(id) };
   }
   save(): void {
-    if(this.cursusForm.Id) {
+    if (this.cursusForm.Id) {
       this.cursusService.update(this.cursusForm);
-      
+
     } else {
       this.cursusService.create(this.cursusForm);
-    } 
+    }
     this.cancel();
   }
 
