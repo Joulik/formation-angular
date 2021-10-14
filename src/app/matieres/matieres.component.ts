@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Matiere } from '../model';
+import { MatiereHttpService } from './matiere-http.service';
 import { MatiereService } from './matiere.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class MatieresComponent implements OnInit {
 
   matiereForm: Matiere = null;
 
-  constructor(private matiereService: MatiereService) { 
+  constructor(private matiereService: MatiereHttpService) { 
   }
 
   ngOnInit(): void {
@@ -26,11 +27,13 @@ export class MatieresComponent implements OnInit {
   }
 
   edit(id: number): void {
-    this.matiereForm = {... this.matiereService.find(id)};
+    this.matiereService.find(id).subscribe(response => {
+      this.matiereForm = response;
+    }, error => console.log(error));
   }
 
   save(): void {
-    if(this.matiereForm.Id) {
+    if(this.matiereForm.id) {
       this.matiereService.update(this.matiereForm);
     } else {
       this.matiereService.create(this.matiereForm);

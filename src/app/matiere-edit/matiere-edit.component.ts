@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatiereHttpService } from '../matieres/matiere-http.service';
 import { MatiereService } from '../matieres/matiere.service';
-import { Matiere } from '../model';
+import { Formateur, Matiere } from '../model';
+import { FormateursService } from '../formateurs/formateurs.service';
 
 @Component({
   selector: 'matiere-edit',
@@ -16,13 +18,17 @@ export class MatiereEditComponent implements OnInit {
 
   @Output() cancelRequest = new EventEmitter<void>();
 
-  constructor(private matiereService: MatiereService) { }
+  constructor(private matiereService: MatiereHttpService) { }
 
   ngOnInit(): void {
   }
 
+  listFormateurs(): Array<Formateur> {
+    return this.matiereService.findAllFormateur();
+  }
+
   save(): void {
-    if (this.matiere.Id) {
+    if (this.matiere.id) {
       this.matiereService.update(this.matiere);
     } else {
       this.matiereService.create(this.matiere);
@@ -31,7 +37,7 @@ export class MatiereEditComponent implements OnInit {
   }
 
   remove(): void {
-    this.deleteRequest.emit(this.matiere.Id);
+    this.deleteRequest.emit(this.matiere.id);
     this.cancel();
   }
 

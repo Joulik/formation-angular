@@ -18,16 +18,16 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let formateur of list()">
-                        <td>{{formateur.Id}}</td>
-                        <td>{{formateur.PersonneType}}</td>
-                        <td>{{formateur.Nom}}</td>
-                        <td>{{formateur.Prenom}}</td>
-                        <td>{{formateur.Externe}}</td>
+                        <td>{{formateur.id}}</td>
+                        <!-- <td>{{formateur.PersonneType}}</td> -->
+                        <td>{{formateur.nom}}</td>
+                        <td>{{formateur.prenom}}</td>
+                        <!-- <td>{{formateur.Externe}}</td> -->
                         <!-- <td>{{formateur.Competences}}</td> -->
                         <td>
                             <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
-                                    (click)="edit(formateur.Id)"><i class="fa fa-edit"></i></button><button type="button"
-                                    class="btn btn-danger" (click)="remove(formateur.Id)"><i
+                                    (click)="edit(formateur.id)"><i class="fa fa-edit"></i></button><button type="button"
+                                    class="btn btn-danger" (click)="remove(formateur.id)"><i
                                         class="fa fa-trash"></i></button></div>
                             
                         </td>
@@ -52,24 +52,24 @@
     <div class="card-body">
         <div class="form-group row">
             <label for="Id" class="col-md-2 col-form-label">Identifiant:</label>
-            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="formateurForm.Id">
+            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="formateurForm.id">
         </div>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label for="PersonneType" class="col-md-2 col-form-label">PersonneType :</label>
             <input type="text" class="col-md-10 form-control" id="PersonneType" [(ngModel)]="formateurForm.PersonneType">
-        </div>
+        </div> -->
         <div class="form-group row">
             <label for="Nom" class="col-md-2 col-form-label">Nom :</label>
-            <input type="text" class="col-md-10 form-control" id="Nom" [(ngModel)]="formateurForm.Nom">
+            <input type="text" class="col-md-10 form-control" id="Nom" [(ngModel)]="formateurForm.nom">
         </div>
         <div class="form-group row">
             <label for="Prenom" class="col-md-2 col-form-label">Prenom :</label>
-            <input type="Prenom" class="col-md-10 form-control" id="Prenom" [(ngModel)]="formateurForm.Prenom">
+            <input type="Prenom" class="col-md-10 form-control" id="Prenom" [(ngModel)]="formateurForm.prenom">
         </div>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label for="DateNaissance" class="col-md-2 col-form-label">Externe :</label>
             <input type="date" class="col-md-10 form-control" id="Externe" [(ngModel)]="formateurForm.Externe">
-        </div>
+        </div> -->
         <!-- <div class="form-group row">
             <label for="CursuId" class="col-md-2 col-form-label">Matières :</label>
             <input type="number" class="col-md-10 form-control" id="Matiere" [(ngModel)]="formateurForm.Competences">
@@ -80,7 +80,7 @@
             <button type="button" class="btn btn-success" (click)="save()">
                 <i class="fa fa-check"></i>
             </button>
-            <button type="button" class="btn btn-danger" (click)="remove(formateurForm.Id)">
+            <button type="button" class="btn btn-danger" (click)="remove(formateurForm.id)">
                 <i class="fa fa-trash"></i>
             </button>
             <button type="button" class="btn btn-warning" (click)="cancel()">

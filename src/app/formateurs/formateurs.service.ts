@@ -16,39 +16,42 @@ export class FormateursService {
     return this.formateurs;
   }
   find(id: number): Formateur {
-    return this.formateurs.find(m => m.Id == id);
+    return this.formateurs.find(m => m.id == id);
   }
 
   create(Formateur: Formateur) : void {
     let max: number = 0;
 
     for(let mat of this.formateurs) {
-      if(max < mat.Id) {
-        max = mat.Id;
+      if(max < mat.id) {
+        max = mat.id;
       }
     }
 
-    Formateur.Id = ++max;
+    Formateur.id = ++max;
 
     this.formateurs.push(Formateur);
   }
 
   update(Formateur: Formateur) : void {
-    const position: number = this.formateurs.findIndex(m => m.Id == Formateur.Id);
+    const position: number = this.formateurs.findIndex(m => m.id == Formateur.id);
 
     this.formateurs[position] = Formateur;
   }
 
   delete(id: number): void {
-    const position: number = this.formateurs.findIndex(m => m.Id == id);
+    const position: number = this.formateurs.findIndex(m => m.id == id);
 
     this.formateurs.splice(position, 1);
   }
 
   private load(): void {
-    this.formateurs.push(new Formateur(1,"f", "O'Connor", "James", true));
-    this.formateurs.push(new Formateur(2,"f", "Maxwell", "Hubbert", true));
-    this.formateurs.push(new Formateur(3,"f", "Gallagher", "Rowenda", false));
+    // this.formateurs.push(new Formateur(1,"f", "O'Connor", "James", true));
+    // this.formateurs.push(new Formateur(2,"f", "Maxwell", "Hubbert", true));
+    // this.formateurs.push(new Formateur(3,"f", "Gallagher", "Rowenda", false));
+    this.formateurs.push(new Formateur(1,"f", "O'Connor", "James"));
+    this.formateurs.push(new Formateur(2,"f", "Maxwell", "Hubbert"));
+    this.formateurs.push(new Formateur(3,"f", "Gallagher", "Rowenda"));
    
   }
 }

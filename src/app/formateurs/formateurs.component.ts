@@ -31,7 +31,7 @@ export class FormateursComponent implements OnInit {
     this.formateurForm = {... this.formateurService.find(id)};
   }
   save(): void {
-    if(this.formateurForm.Id) {
+    if(this.formateurForm.id) {
       this.formateurService.update(this.formateurForm);
       
     } else {

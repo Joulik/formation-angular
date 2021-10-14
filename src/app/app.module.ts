@@ -10,6 +10,7 @@ import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { StagiairesComponent } from './stagiaires/stagiaires.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { CursusComponent } from './cursus/cursus.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CursusComponent } from './cursus/cursus.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [MatiereService],
