@@ -82,18 +82,18 @@ export class Stagiaire extends Personne {
 
 export class Cursus{
 
-    public Id : number ;
-    public  Intitule : string;
-    public  DateDebut :Date;
-    public  DateFin : Date;
-    public Stagiaires : Array<Stagiaire>  = new Array<Stagiaire>();
+    public id : number ;
+    public intitule : string;
+    public dateDebut :Date;
+    public dateFin : Date;
+    public stagiaires : Array<Stagiaire>  = new Array<Stagiaire>();
 
     constructor(id?: number, intitule? : string, datedebut?:Date, datefin?: Date, stagiaires?: Array<Stagiaire>){
-        this.Id=id;
-        this.Intitule=intitule;
-        this.DateDebut=datedebut;
-        this.DateFin=datefin;
-        this.Stagiaires=stagiaires;
+        this.id=id;
+        this.intitule=intitule;
+        this.dateDebut=datedebut;
+        this.dateFin=datefin;
+        this.stagiaires=stagiaires;
     }
 }
 

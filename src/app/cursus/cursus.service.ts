@@ -19,35 +19,35 @@ export class CursusService {
   }
 
   findAllStagiaires(cur : Cursus): Array<Stagiaire> {
-    return cur.Stagiaires;
+    return cur.stagiaires;
   }
 
   find(id: number): Cursus {
-    return this.cursus.find(m => m.Id == id);
+    return this.cursus.find(m => m.id == id);
   }
 
   create(cursus: Cursus) : void {
     let max: number = 0;
 
     for(let mat of this.cursus) {
-      if(max < mat.Id) {
-        max = mat.Id;
+      if(max < mat.id) {
+        max = mat.id;
       }
     }
 
-    cursus.Id = ++max;
+    cursus.id = ++max;
 
     this.cursus.push(cursus);
   }
 
   update(cursus: Cursus) : void {
-    const position: number = this.cursus.findIndex(m => m.Id == cursus.Id);
+    const position: number = this.cursus.findIndex(m => m.id == cursus.id);
 
     this.cursus[position] = cursus;
   }
 
   delete(id: number): void {
-    const position: number = this.cursus.findIndex(m => m.Id == id);
+    const position: number = this.cursus.findIndex(m => m.id == id);
 
     this.cursus.splice(position, 1);
   }

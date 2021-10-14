@@ -17,19 +17,20 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let cursus of list()">
-                        <td>{{cursus.Id}}</td>
-                        <td>{{cursus.Intitule}}</td>
-                        <td>{{cursus.DateDebut}}</td>
-                        <td>{{cursus.DateFin}}</td>
+                        <td>{{cursus.id}}</td>
+                        <td>{{cursus.intitule}}</td>
+                        <td>{{cursus.dateDebut}}</td>
+                        <td>{{cursus.dateFin}}</td>
                         <td>
                             <ul>
-                                <li *ngFor="let stag of listStagiaires(cursus)">{{stag.Id}}</li>
+                                <!-- <li *ngFor="let stag of listStagiaires(cursus)">{{stag.Id}}</li> -->
                             </ul>
                         </td>
                         <td>
-                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary"
-                                    (click)="edit(cursus.Id)"><i class="fa fa-edit"></i></button><button type="button"
-                                    class="btn btn-danger" (click)="remove(cursus.Id)"><i
+                            <div class="btn-group btn-group-sm">
+                                <button type="button" class="btn btn-primary" (click)="edit(cursus.id)"><i
+                                        class="fa fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger" (click)="remove(cursus.id)"><i
                                         class="fa fa-trash"></i></button>
                             </div>
                         </td>
@@ -54,26 +55,26 @@
     <div class="card-body">
         <div class="form-group row">
             <label for="Id" class="col-md-2 col-form-label">Identifiant:</label>
-            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="cursusForm.Id">
+            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="cursusForm.id">
         </div>
         <div class="form-group row">
             <label for="Intitule" class="col-md-2 col-form-label">Intitule :</label>
-            <input type="text" class="col-md-10 form-control" id="Intitule" [(ngModel)]="cursusForm.Intitule">
+            <input type="text" class="col-md-10 form-control" id="Intitule" [(ngModel)]="cursusForm.intitule">
         </div>
         <div class="form-group row">
             <label for="DateDebut" class="col-md-2 col-form-label">Date de début:</label>
-            <input type="date" class="col-md-10 form-control" id="DateDebut" [(ngModel)]="cursusForm.DateDebut">
+            <input type="date" class="col-md-10 form-control" id="DateDebut" [(ngModel)]="cursusForm.dateDebut">
         </div>
         <div class="form-group row">
             <label for="DateFin" class="col-md-2 col-form-label">Date de fin :</label>
-            <input type="date" class="col-md-10 form-control" id="DateFin" [(ngModel)]="cursusForm.DateFin">
+            <input type="date" class="col-md-10 form-control" id="DateFin" [(ngModel)]="cursusForm.dateFin">
         </div>
         <div class="form-group row">
             <label for="Stagiaires" class="col-md-2 col-form-label">Liste de Stagiaires:</label>
             <select [(ngModel)]="stagiairesForm">
                 <option *ngFor="let stag of stagiaireService.findAll()" value="stag.Id">{{stag.Id}}</option>
-                
-               </select>
+
+            </select>
             <!-- <input type="text" class="col-md-10 form-control" id="Stagiaires" [(ngModel)]="> -->
         </div>
     </div>
@@ -82,7 +83,7 @@
             <button type="button" class="btn btn-success" (click)="save()">
                 <i class="fa fa-check"></i>
             </button>
-            <button type="button" class="btn btn-danger" (click)="remove(cursusForm.Id)">
+            <button type="button" class="btn btn-danger" (click)="remove(cursusForm.id)">
                 <i class="fa fa-trash"></i>
             </button>
             <button type="button" class="btn btn-warning" (click)="cancel()">

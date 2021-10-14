@@ -50,9 +50,9 @@ export class MatiereService {
 
 
   private load(): void {
-    this.matieres.push(new Matiere(1, "HTML/CSS", 2, "Apprendre le HTML", "Aucun", "HTML5 et CSS3"));
-    this.matieres.push(new Matiere(3, "JAVASCRIPT", 3, "Fondamentaux du langage Javascript", "HTML", "Javascript ES6"));
-    this.matieres.push(new Matiere(6, "ANGULAR", 5, "Introduction à angular", "HTML5,CSS3 et Javascript", "Les bases d'Angular"));
+    // this.matieres.push(new Matiere(1, "HTML/CSS", 2, "Apprendre le HTML", "Aucun", "HTML5 et CSS3"));
+    // this.matieres.push(new Matiere(3, "JAVASCRIPT", 3, "Fondamentaux du langage Javascript", "HTML", "Javascript ES6"));
+    // this.matieres.push(new Matiere(6, "ANGULAR", 5, "Introduction à angular", "HTML5,CSS3 et Javascript", "Les bases d'Angular"));
 
     this.matieres[0].formateurs.push(this.formateurService.find(1));
     this.matieres[0].formateurs.push(this.formateurService.find(3));
