@@ -12,9 +12,8 @@ import { CursusService } from './cursus.service';
 export class CursusComponent implements OnInit {
 
   cursusForm: Cursus = null;
-  public stagiaireService: StagiairesService = new StagiairesService();
-  stagiairesForm: Array<Stagiaire> = this.stagiaireService.stagiaires;
-
+  // public stagiaireService: StagiairesService = new StagiairesService();
+  // stagiairesForm: Array<Stagiaire> = this.stagiaireService.stagiaires;
 
   // @Output() deleteRequest = new EventEmitter<number>();
 
@@ -28,9 +27,9 @@ export class CursusComponent implements OnInit {
     return this.cursusService.findAll();
   }
 
-  // listStagiaires(cursus : Cursus): Array<Stagiaire> {
-  //   return this.cursusService.findAllStagiaires(cursus);
-  // }
+  listStagiaires(): Array<Stagiaire> {
+    return this.cursusService.findAllStagiaires();
+  }
 
   add(): void {
     this.cursusForm = new Cursus();

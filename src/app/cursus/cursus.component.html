@@ -23,7 +23,7 @@
                         <td>{{cursus.dateFin}}</td>
                         <td>
                             <ul>
-                                <!-- <li *ngFor="let stag of listStagiaires(cursus)">{{stag.Id}}</li> -->
+                                <li *ngFor="let stag of cursus.stagiaires">({{stag.id}}) {{stag.prenom}} {{stag.nom}} </li>
                             </ul>
                         </td>
                         <td>
@@ -71,8 +71,8 @@
         </div>
         <div class="form-group row">
             <label for="Stagiaires" class="col-md-2 col-form-label">Liste de Stagiaires:</label>
-            <select [(ngModel)]="stagiairesForm">
-                <option *ngFor="let stag of stagiaireService.findAll()" value="stag.Id">{{stag.Id}}</option>
+            <select [(ngModel)]="cursusForm.stagiaires">
+                <option *ngFor="let stag of listStagiaires()" [ngValue]="stag">{{stag.id}} {{stag.prenom}} {{stag.nom}}}</option>
 
             </select>
             <!-- <input type="text" class="col-md-10 form-control" id="Stagiaires" [(ngModel)]="> -->

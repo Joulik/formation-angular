@@ -20,21 +20,21 @@ export class Matiere {
 
 export abstract class Personne {
 
-    public Id: number;
-    public PersonneType: string;
+    public id: number;
+    public personneType: string;
     //public Civilite Civilite;
-    public Nom: string;
-    public Prenom: string;
+    public nom: string;
+    public prenom: string;
     // public Email: string;
     // public Telephone: string;
     // public AdresseId: number;
     // public Adresse: Adresse;
 
     constructor(Id:number, PersonneType: string, Nom:string, Prenom:string) {
-        this.Id = Id;
-        this.PersonneType = PersonneType;
-        this.Nom = Nom;
-        this.Prenom = Prenom;
+        this.id = Id;
+        this.personneType = PersonneType;
+        this.nom = Nom;
+        this.prenom = Prenom;
     }
 }
 
@@ -67,16 +67,16 @@ export class Formateur {
 
 export class Stagiaire extends Personne {
 
-    public DateNaissance: Date;
-    public CursusId:number;
-    public Cursus: Cursus;
+    public dateNaissance: Date;
+    public cursusId:number;
+    public cursus: Cursus;
     // public List<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
 
     constructor(Id?: number, PersonneType?:string, Nom?:string, Prenom?:string, DateNaissance?: Date, CursusId?: number, Cursus?: Cursus) {
         super(Id,PersonneType,Nom,Prenom);
-        this.DateNaissance = DateNaissance;
-        this.CursusId = CursusId;
-        this.Cursus = Cursus;
+        this.dateNaissance = DateNaissance;
+        this.cursusId = CursusId;
+        this.cursus = Cursus;
     } 
 }
 

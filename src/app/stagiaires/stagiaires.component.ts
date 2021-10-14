@@ -31,7 +31,7 @@ export class StagiairesComponent implements OnInit {
     this.stagiaireForm = {... this.stagiaireService.find(id)};
   }
   save(): void {
-    if(this.stagiaireForm.Id) {
+    if(this.stagiaireForm.id) {
       this.stagiaireService.update(this.stagiaireForm);
       
     } else {

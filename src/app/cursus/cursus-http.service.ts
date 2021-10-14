@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cursus, Formateur, Matiere } from '../model';
+import { Cursus, Formateur, Matiere, Stagiaire } from '../model';
 
 
 @Injectable({
@@ -10,9 +10,11 @@ import { Cursus, Formateur, Matiere } from '../model';
 export class CursusHttpService {
 
   private cursus: Array<Cursus> = new Array<Cursus>();
+  private stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
 
   constructor(private http: HttpClient) { 
     this.load();
+    //this.loadStagiaires();
   }
 
   findAll(): Array<Cursus> {
@@ -26,6 +28,12 @@ export class CursusHttpService {
   private load(): void {
     this.http.get<Array<Cursus>>("http://localhost:5000/api/Cursus").subscribe(response => {
       this.cursus = response;
+    }, error => console.log(error));
+  }
+
+  private loadStagiaires(): void {
+    this.http.get<Array<Stagiaire>>("http://localhost:5000/api/Cursus/Stagiaire").subscribe(response => {
+      this.stagiaires = response;
     }, error => console.log(error));
   }
 
@@ -47,5 +55,8 @@ export class CursusHttpService {
     }, error => console.log(error));
   }
 
+  findAllStagiaires(): Array<Stagiaire> {
+    return this.stagiaires;
+  }
 
 }
